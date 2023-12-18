@@ -1,0 +1,29 @@
+{
+  "project_info": {
+    "project_number": "529751383806",
+    "project_id": "ppab-uas",
+    "storage_bucket": "ppab-uas.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:529751383806:android:35b80383d13664e37fcfaf",
+        "android_client_info": {
+          "package_name": "com.example.mobile_uas"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyCxpZrbATEKaiOxOoCEXOli9LpUOKau7xY"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

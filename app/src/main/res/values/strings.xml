@@ -1,0 +1,16 @@
+<resources>
+    <string name="app_name">CalorieCare</string>
+    <string name="start">get started</string>
+    <string name="start_text_advice">By continuing on this application you agree to our Terms of Use and Privacy Policy</string>
+    <!-- TODO: Remove or change this placeholder text -->
+    <string name="hello_blank_fragment">Hello blank fragment</string>
+
+    <string name="title_onboarding_1">Welcome to CalorieCare !</string>
+    <string name="description_onboarding_1">CalorieCare adalah aplikasi diet dan penghitung kalori yang siap menjadi sahabat setia Anda dalam perjalanan menuju gaya hidup lebih sehat. Pantau asupan kalori Anda, atur rencana makan, dan raih impian berat badan Anda</string>
+    <string name="title_onboarding_2">Penghitung Kalori Cerdas</string>
+    <string name="description_onboarding_2">Temukan penghitung kalori cerdas yang dapat membantu Anda mencapai target berat badan ideal. CalorieCare memudahkan Anda dalam melacak makanan harian dan memberikan saran gizi yang terpersonalisasi</string>
+
+    <string name="title_onboarding_3"> Transformasi Kesehatan Anda</string>
+    <string name="description_onboarding_3">Bersiaplah untuk mengubah hidup Anda dengan CalorieCare. Dengan dukungan penuh untuk diet sehat dan penghitungan kalori yang efisien, Anda akan mengalami transformasi kesehatan yang luar biasa.</string>
+
+</resources>
