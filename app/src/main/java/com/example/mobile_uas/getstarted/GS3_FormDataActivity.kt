@@ -125,6 +125,7 @@ class GS3_FormDataActivity : AppCompatActivity(), DatePickerDialog.OnDateSetList
     private fun addUserDataToFirestore(userId: String?, val_name: String, weight: Int, weight_unit: String, target_weight: Int, target_weight_unit: String, target_date: String, calorie: Int, email: String, tipe: Int) {
         // Add user data to Firestore
         val user = hashMapOf(
+            "userId" to userId,
             "name" to val_name,
             "weight" to weight,
             "weight_unit" to weight_unit,

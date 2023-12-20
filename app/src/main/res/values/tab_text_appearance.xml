@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <style name="CustomTabTextAppearance" parent="TextAppearance.Design.Tab">
+        <item name="android:fontFamily">@font/montserrat_medium</item>
+        <!-- Add other attributes as needed -->
+    </style>
+</resources>

@@ -1,22 +1,531 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
-    xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".ui.home.HomeFragment">
+    android:background="#fff"
+    >
 
-    <TextView
-        android:id="@+id/text_home"
+
+
+
+    <androidx.coordinatorlayout.widget.CoordinatorLayout
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="8dp"
-        android:layout_marginTop="8dp"
-        android:layout_marginEnd="8dp"
-        android:textAlignment="center"
-        android:textSize="20sp"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
-</androidx.constraintlayout.widget.ConstraintLayout>
+        android:layout_height="match_parent">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:orientation="vertical">
+
+
+            <LinearLayout
+                android:id="@+id/LinearLayout1"
+                android:layout_width="match_parent"
+                android:layout_height="300dp"
+                android:orientation="vertical"
+                android:background="@drawable/rounded_linear"
+                >
+
+                <RelativeLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent">
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_centerVertical="true"
+                        android:layout_marginLeft="@dimen/margin_medium"
+                        android:layout_marginRight="@dimen/margin_medium"
+                        android:orientation="vertical">
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_marginRight="20dp"
+                            android:fontFamily="@font/montserrat"
+                            android:text="Hai.."
+                            android:textColor="#fff"
+                            android:textSize="@dimen/text_size_large" />
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:fontFamily="@font/montserrat_bold"
+                            android:text="Sahabat sehat"
+                            android:textColor="#fff"
+                            android:textSize="@dimen/text_size_xlager" />
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_marginTop="20px"
+                            android:fontFamily="@font/montserrat"
+                            android:text="Berapa kalori yang sudah kamu bakar hari ini?"
+                            android:textColor="#fff"
+                            android:textSize="@dimen/text_size_medium" />
+                    </LinearLayout>
+
+                </RelativeLayout>
+
+            </LinearLayout>
+
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_marginTop="60dp"
+                android:layout_height="match_parent"
+                android:layout_marginLeft="@dimen/margin_medium"
+                android:layout_marginRight="@dimen/margin_medium"
+                android:layout_marginBottom="50px"
+                android:orientation="vertical">
+
+
+
+                <TextView
+                    android:layout_marginTop="30px"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:fontFamily="@font/montserrat_bold"
+                    android:textColor="@color/black"
+                    android:textSize="@dimen/text_size_medium"
+                    android:text="Berita Terkini"/>
+
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="vertical"
+                    >
+
+                    <LinearLayout
+                        android:layout_marginTop="30px"
+                        android:layout_width="match_parent"
+                        android:layout_height="200px"
+                        android:background="@drawable/rounded_beritaterkini"
+                        android:orientation="horizontal">
+
+                        <ImageView
+                            android:layout_width="200px"
+                            android:layout_height="200px"
+                            android:layout_marginLeft="40px"
+                            android:padding="20px"
+                            android:scaleType="centerInside"
+                            android:src="@drawable/ic_launcher_background" />
+
+                        <RelativeLayout
+                            android:layout_width="2dp"
+                            android:layout_height="match_parent"
+                            android:layout_marginTop="20px"
+                            android:layout_marginLeft="10px"
+                            android:layout_marginBottom="20px"
+                            android:background="#EEEEEE"/>
+
+                        <RelativeLayout
+                            android:layout_width="match_parent"
+                            android:layout_height="match_parent"
+                            android:layout_margin="20px">
+
+                            <LinearLayout
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:orientation="vertical"
+                                android:layout_centerVertical="true"
+                                >
+
+                                <TextView
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="wrap_content"
+                                    android:fontFamily="@font/montserrat"
+                                    android:text="Berita tentang covid terkini yang adaxxxxxxxx"
+                                    android:textColor="@color/black"
+                                    android:ellipsize="end"
+                                    android:inputType="none"
+                                    android:maxLines="1"/>
+
+                                <LinearLayout
+                                    android:layout_width="match_parent"
+                                    android:layout_height="wrap_content"
+                                    android:orientation="horizontal">
+                                    <TextView
+                                        android:layout_width="wrap_content"
+                                        android:layout_height="wrap_content"
+                                        android:text="www.tirto.id/beritacovid"
+                                        android:fontFamily="@font/montserrat"/>
+                                </LinearLayout>
+                            </LinearLayout>
+                        </RelativeLayout>
+
+
+
+                    </LinearLayout>
+                    <LinearLayout
+                        android:layout_marginTop="30px"
+                        android:layout_width="match_parent"
+                        android:layout_height="200px"
+                        android:background="@drawable/rounded_beritaterkini"
+                        android:orientation="horizontal">
+
+                        <ImageView
+                            android:layout_width="200px"
+                            android:layout_height="200px"
+                            android:layout_marginLeft="40px"
+                            android:padding="20px"
+                            android:scaleType="centerInside"
+                            android:src="@drawable/ic_launcher_background" />
+
+                        <RelativeLayout
+                            android:layout_width="2dp"
+                            android:layout_height="match_parent"
+                            android:layout_marginTop="20px"
+                            android:layout_marginLeft="10px"
+                            android:layout_marginBottom="20px"
+                            android:background="#EEEEEE"/>
+
+                        <RelativeLayout
+                            android:layout_width="match_parent"
+                            android:layout_height="match_parent"
+                            android:layout_margin="20px">
+
+                            <LinearLayout
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:orientation="vertical"
+                                android:layout_centerVertical="true"
+                                >
+
+                                <TextView
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="wrap_content"
+                                    android:fontFamily="@font/montserrat"
+                                    android:text="Berita tentang covid terkini yang adaxxxxxxxx"
+                                    android:textColor="@color/black"
+                                    android:ellipsize="end"
+                                    android:inputType="none"
+                                    android:maxLines="1"/>
+
+                                <LinearLayout
+                                    android:layout_width="match_parent"
+                                    android:layout_height="wrap_content"
+                                    android:orientation="horizontal">
+                                    <TextView
+                                        android:layout_width="wrap_content"
+                                        android:layout_height="wrap_content"
+                                        android:text="www.tirto.id/beritacovid"
+                                        android:fontFamily="@font/montserrat"/>
+                                </LinearLayout>
+                            </LinearLayout>
+                        </RelativeLayout>
+
+
+
+                    </LinearLayout>
+                    <LinearLayout
+                        android:layout_marginTop="30px"
+                        android:layout_width="match_parent"
+                        android:layout_height="200px"
+                        android:background="@drawable/rounded_beritaterkini"
+                        android:orientation="horizontal">
+
+                        <ImageView
+                            android:layout_width="200px"
+                            android:layout_height="200px"
+                            android:layout_marginLeft="40px"
+                            android:padding="20px"
+                            android:scaleType="centerInside"
+                            android:src="@drawable/ic_launcher_background" />
+
+                        <RelativeLayout
+                            android:layout_width="2dp"
+                            android:layout_height="match_parent"
+                            android:layout_marginTop="20px"
+                            android:layout_marginLeft="10px"
+                            android:layout_marginBottom="20px"
+                            android:background="#EEEEEE"/>
+
+                        <RelativeLayout
+                            android:layout_width="match_parent"
+                            android:layout_height="match_parent"
+                            android:layout_margin="20px">
+
+                            <LinearLayout
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:orientation="vertical"
+                                android:layout_centerVertical="true"
+                                >
+
+                                <TextView
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="wrap_content"
+                                    android:fontFamily="@font/montserrat"
+                                    android:text="Berita tentang covid terkini yang adaxxxxxxxx"
+                                    android:textColor="@color/black"
+                                    android:ellipsize="end"
+                                    android:inputType="none"
+                                    android:maxLines="1"/>
+
+                                <LinearLayout
+                                    android:layout_width="match_parent"
+                                    android:layout_height="wrap_content"
+                                    android:orientation="horizontal">
+                                    <TextView
+                                        android:layout_width="wrap_content"
+                                        android:layout_height="wrap_content"
+                                        android:text="www.tirto.id/beritacovid"
+                                        android:fontFamily="@font/montserrat"/>
+                                </LinearLayout>
+                            </LinearLayout>
+                        </RelativeLayout>
+
+
+
+                    </LinearLayout>
+                    <LinearLayout
+                        android:layout_marginTop="30px"
+                        android:layout_width="match_parent"
+                        android:layout_height="200px"
+                        android:background="@drawable/rounded_beritaterkini"
+                        android:orientation="horizontal">
+
+                        <ImageView
+                            android:layout_width="200px"
+                            android:layout_height="200px"
+                            android:layout_marginLeft="40px"
+                            android:padding="20px"
+                            android:scaleType="centerInside"
+                            android:src="@drawable/ic_launcher_background" />
+
+                        <RelativeLayout
+                            android:layout_width="2dp"
+                            android:layout_height="match_parent"
+                            android:layout_marginTop="20px"
+                            android:layout_marginLeft="10px"
+                            android:layout_marginBottom="20px"
+                            android:background="#EEEEEE"/>
+
+                        <RelativeLayout
+                            android:layout_width="match_parent"
+                            android:layout_height="match_parent"
+                            android:layout_margin="20px">
+
+                            <LinearLayout
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:orientation="vertical"
+                                android:layout_centerVertical="true"
+                                >
+
+                                <TextView
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="wrap_content"
+                                    android:fontFamily="@font/montserrat"
+                                    android:text="Berita tentang covid terkini yang adaxxxxxxxx"
+                                    android:textColor="@color/black"
+                                    android:ellipsize="end"
+                                    android:inputType="none"
+                                    android:maxLines="1"/>
+
+                                <LinearLayout
+                                    android:layout_width="match_parent"
+                                    android:layout_height="wrap_content"
+                                    android:orientation="horizontal">
+                                    <TextView
+                                        android:layout_width="wrap_content"
+                                        android:layout_height="wrap_content"
+                                        android:text="www.tirto.id/beritacovid"
+                                        android:fontFamily="@font/montserrat"/>
+                                </LinearLayout>
+                            </LinearLayout>
+                        </RelativeLayout>
+
+
+
+                    </LinearLayout>
+
+
+
+                </LinearLayout>
+            </LinearLayout>
+
+        </LinearLayout>
+
+        <androidx.cardview.widget.CardView
+            android:layout_width="match_parent"
+            android:layout_marginLeft="20dp"
+            android:layout_marginRight="20dp"
+            android:layout_height="120dp"
+            app:cardBackgroundColor="#FFF"
+            app:layout_anchor="@id/LinearLayout1"
+            app:layout_anchorGravity="center|bottom"
+            app:cardCornerRadius="10dp">
+
+
+                <RelativeLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:layout_marginLeft="25dp"
+                    android:layout_marginRight="25dp"
+
+                    android:layout_centerVertical="true"
+                    >
+
+
+                    <FrameLayout
+                        android:id="@+id/rel_progress"
+                        android:layout_width="wrap_content"
+                        android:layout_height="match_parent">
+
+                        <RelativeLayout
+                            android:layout_width="wrap_content"
+                            android:layout_height="match_parent">
+
+                            <TextView
+                                android:id="@+id/text_overlay"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:text="0\nCAL\nLEFT"
+                                android:fontFamily="@font/montserrat_bold"
+                                android:textAlignment="center"
+                                android:layout_centerInParent="true"
+                                android:textColor="@android:color/black" />
+
+                            <!-- Your CircularProgressIndicator -->
+                            <com.google.android.material.progressindicator.CircularProgressIndicator
+                                android:id="@+id/progress_circular_indicator"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:progress="90"
+                                app:indicatorColor="@color/colorSecondary"
+                                app:indicatorSize="90dp"
+                                android:layout_centerVertical="true"
+                                app:trackColor="@color/md_grey_50"
+                                app:trackCornerRadius="26dp"
+                                app:trackThickness="10dp" />
+
+                            <!-- Your TextView overlaying the CircularProgressIndicator -->
+
+                        </RelativeLayout>
+
+                    </FrameLayout>
+
+
+                    <LinearLayout
+                        android:layout_toRightOf="@+id/rel_progress"
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:orientation="horizontal"
+                        android:weightSum="3">
+
+                        <RelativeLayout
+                            android:layout_width="0dp"
+                            android:layout_height="match_parent"
+                            android:layout_weight="1"
+                            >
+
+                            <LinearLayout
+                                android:layout_centerVertical="true"
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:orientation="vertical">
+                                <TextView
+                                    android:layout_width="match_parent"
+                                    android:layout_height="wrap_content"
+                                    android:text="Breakfast"
+                                    android:textSize="10dp"
+                                    android:fontFamily="@font/montserrat"
+                                    android:textAlignment="center"/>
+                                <TextView
+                                    android:layout_width="match_parent"
+                                    android:layout_height="wrap_content"
+                                    android:text="450 Kal"
+                                    android:fontFamily="@font/montserrat_bold"
+                                    android:textAlignment="center"/>
+
+                            </LinearLayout>
+
+                        </RelativeLayout>
+                        <RelativeLayout
+                            android:layout_width="wrap_content"
+                            android:layout_height="match_parent">
+                            <View
+                                android:layout_centerVertical="true"
+                                android:layout_width="1dp"
+                                android:layout_height="40dp"
+                                android:background="#000000"/>
+                        </RelativeLayout>
+
+                        <RelativeLayout
+                            android:layout_width="0dp"
+                            android:layout_height="match_parent"
+                            android:layout_weight="1"
+                            >
+                            <LinearLayout
+                                android:layout_centerVertical="true"
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:orientation="vertical">
+                                <TextView
+                                    android:layout_width="match_parent"
+                                    android:layout_height="wrap_content"
+                                    android:text="Lunch"
+                                    android:textSize="10dp"
+                                    android:fontFamily="@font/montserrat"
+                                    android:textAlignment="center"/>
+                                <TextView
+                                    android:layout_width="match_parent"
+                                    android:layout_height="wrap_content"
+                                    android:text="450 Kal"
+                                    android:fontFamily="@font/montserrat_bold"
+                                    android:textAlignment="center"/>
+
+                            </LinearLayout>
+                        </RelativeLayout>
+                        <RelativeLayout
+                            android:layout_width="wrap_content"
+                            android:layout_height="match_parent">
+                            <View
+                                android:layout_centerVertical="true"
+                                android:layout_width="1dp"
+                                android:layout_height="40dp"
+                                android:background="#000000"/>
+                        </RelativeLayout>
+                        <RelativeLayout
+                            android:layout_width="0dp"
+                            android:layout_height="match_parent"
+                            android:layout_weight="1"
+                            >
+                            <LinearLayout
+                                android:layout_centerVertical="true"
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:orientation="vertical">
+                                <TextView
+                                    android:layout_width="match_parent"
+                                    android:layout_height="wrap_content"
+                                    android:text="Dinner"
+                                    android:textSize="10dp"
+                                    android:fontFamily="@font/montserrat"
+                                    android:textAlignment="center"/>
+                                <TextView
+                                    android:layout_width="match_parent"
+                                    android:layout_height="wrap_content"
+                                    android:text="450 Kal"
+                                    android:fontFamily="@font/montserrat_bold"
+                                    android:textAlignment="center"/>
+
+                            </LinearLayout>
+                        </RelativeLayout>
+                    </LinearLayout>
+
+
+                </RelativeLayout>
+
+
+        </androidx.cardview.widget.CardView>
+
+
+    </androidx.coordinatorlayout.widget.CoordinatorLayout>
+
+
+</ScrollView>

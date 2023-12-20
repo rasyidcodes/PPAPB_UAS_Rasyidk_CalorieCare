@@ -12,5 +12,9 @@
 
     <string name="title_onboarding_3"> Transformasi Kesehatan Anda</string>
     <string name="description_onboarding_3">Bersiaplah untuk mengubah hidup Anda dengan CalorieCare. Dengan dukungan penuh untuk diet sehat dan penghitungan kalori yang efisien, Anda akan mengalami transformasi kesehatan yang luar biasa.</string>
+    <string name="title_activity_bottom_navigation">BottomNavigationActivity</string>
+    <string name="title_home">Home</string>
+    <string name="title_dashboard">Dashboard</string>
+    <string name="title_notifications">Notifications</string>
 
 </resources>

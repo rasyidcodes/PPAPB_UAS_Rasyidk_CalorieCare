@@ -17,39 +17,60 @@
         <TextView
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="LOGIN"
-            android:textSize="40dp"
+            android:text="Login"
+            android:fontFamily="@font/montserrat_bold"
+            android:textSize="@dimen/text_size_xlager"
             android:textAlignment="center"/>
 
-        <EditText
-            android:layout_marginTop="40dp"
-            android:id="@+id/login_et_email"
+
+        <com.google.android.material.textfield.TextInputLayout
+            android:layout_marginTop="@dimen/margin_large"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:hint="email"/>
+            android:hint="Email">
 
-        <EditText
-            android:id="@+id/login_et_password"
+            <com.google.android.material.textfield.TextInputEditText
+                android:id="@+id/login_et_email"
+                android:layout_width="match_parent"
+                android:textColor="@color/black"
+                android:layout_height="wrap_content"
+                />
+        </com.google.android.material.textfield.TextInputLayout>
+
+        <com.google.android.material.textfield.TextInputLayout
+            android:layout_marginTop="@dimen/margin_small"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:hint="password"/>
+            android:hint="Password">
 
-        <Button
+            <com.google.android.material.textfield.TextInputEditText
+                android:id="@+id/login_et_password"
+                android:layout_width="match_parent"
+                android:inputType="textPassword"
+                android:textColor="@color/black"
+                android:layout_height="wrap_content"
+                />
+        </com.google.android.material.textfield.TextInputLayout>
 
-            android:layout_marginTop="40dp"
+        <ProgressBar
+            android:layout_marginTop="@dimen/margin_small"
+            android:id="@+id/progressBarLogin"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:visibility="gone"/>
+
+        <androidx.appcompat.widget.AppCompatButton
+            android:layout_marginTop="@dimen/margin_large"
             android:id="@+id/login_bt_login"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:text="Login"
-            android:textAllCaps="false"/>
+            android:layout_width="fill_parent"
+            android:layout_height="50dp"
+            android:background="@drawable/rounded_button_secondary"
+            android:text="Log In"
+            android:fontFamily="@font/montserrat_bold"
+            android:textAllCaps="false"
+            android:textColor="#FFF"
+            android:textSize="@dimen/text_size_large" />
 
-        <TextView
-            android:layout_marginTop="16dp"
-            android:textAlignment="center"
-            android:id="@+id/login_bt_to_signup"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:text="Signup"
-            android:textAllCaps="false"/>
     </LinearLayout>
 </RelativeLayout>

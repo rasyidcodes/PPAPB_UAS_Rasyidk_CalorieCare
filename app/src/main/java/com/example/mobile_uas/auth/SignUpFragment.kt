@@ -73,9 +73,7 @@ class SignUpFragment : Fragment() {
                 }
         }
 
-        binding.signupBtToLogin.setOnClickListener {
-            // TODO: Navigate to the login fragment or activity
-        }
+
     }
 
     private fun addUserToFirestore(userId: String?, email: String) {

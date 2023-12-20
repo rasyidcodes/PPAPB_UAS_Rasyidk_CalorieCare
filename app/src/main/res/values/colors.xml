@@ -10,8 +10,8 @@
     <!--    <color name="colorPrimary">#FF398C</color>-->
     <!--    <color name="colorPrimaryDark">#FC0F72</color>-->
 
-    <color name="colorPrimary">#4285f4</color>
-    <color name="colorPrimaryDark">#3E97F0</color>
+    <color name="colorPrimary">#30B6ED</color>
+    <color name="colorSecondary">#FF7D43</color>
     <!--reds-->
     <color name="md_red_50">#FFEBEE</color>
     <color name="md_red_100">#FFCDD2</color>
