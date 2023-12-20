@@ -49,6 +49,7 @@
                             android:textSize="@dimen/text_size_large" />
 
                         <TextView
+                            android:id="@+id/fr_home_tv_name"
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
                             android:fontFamily="@font/montserrat_bold"
@@ -381,7 +382,7 @@
                             android:layout_height="match_parent">
 
                             <TextView
-                                android:id="@+id/text_overlay"
+                                android:id="@+id/fr_home_tv_cal_left"
                                 android:layout_width="wrap_content"
                                 android:layout_height="wrap_content"
                                 android:text="0\nCAL\nLEFT"
@@ -436,6 +437,7 @@
                                     android:fontFamily="@font/montserrat"
                                     android:textAlignment="center"/>
                                 <TextView
+                                    android:id="@+id/fr_home_tv_breakfast"
                                     android:layout_width="match_parent"
                                     android:layout_height="wrap_content"
                                     android:text="450 Kal"
@@ -473,6 +475,7 @@
                                     android:fontFamily="@font/montserrat"
                                     android:textAlignment="center"/>
                                 <TextView
+                                    android:id="@+id/fr_home_tv_lunch"
                                     android:layout_width="match_parent"
                                     android:layout_height="wrap_content"
                                     android:text="450 Kal"
@@ -508,6 +511,7 @@
                                     android:fontFamily="@font/montserrat"
                                     android:textAlignment="center"/>
                                 <TextView
+                                    android:id="@+id/fr_home_tv_dinner"
                                     android:layout_width="match_parent"
                                     android:layout_height="wrap_content"
                                     android:text="450 Kal"

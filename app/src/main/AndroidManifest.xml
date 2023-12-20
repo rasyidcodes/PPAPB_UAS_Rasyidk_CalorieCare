@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:tools="http://schemas.android.com/tools" >
+    xmlns:tools="http://schemas.android.com/tools">
 
     <uses-permission android:name="android.permission.INTERNET" />
 
@@ -13,9 +13,15 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/Theme.Mobile_UAS"
-        tools:targetApi="31" >
+        tools:targetApi="31">
         <activity
-            android:name=".BottomNavigationActivity"
+            android:name=".admin.AdminActivity"
+            android:exported="false" />
+        <activity
+            android:name=".addmenu.AddFoodActivity"
+            android:exported="false" />
+        <activity
+            android:name=".auth.AuthActivity"
             android:exported="false"
             android:label="@string/title_activity_bottom_navigation" />
         <activity
@@ -40,8 +46,8 @@
             android:name=".MainActivity"
             android:exported="false" />
         <activity
-            android:name=".auth.AuthActivity"
-            android:exported="true" >
+            android:name=".BottomNavigationActivity"
+            android:exported="true">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
