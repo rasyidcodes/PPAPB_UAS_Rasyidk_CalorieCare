@@ -24,6 +24,7 @@ class MenuUserAdapter(var menuUserList: List<MenuUser>, private val menuUserDao:
         val textViewCalorie: TextView = itemView.findViewById(R.id.item_History_Calorie)
         val textViewDate : TextView = itemView.findViewById(R.id.item_History_Date)
         val textViewType : TextView = itemView.findViewById(R.id.item_History_Type)
+        val textServing : TextView = itemView.findViewById(R.id.item_History_Serving)
         val btDelete : Button = itemView.findViewById(R.id.item_History_Delete);
     }
 
@@ -40,6 +41,7 @@ class MenuUserAdapter(var menuUserList: List<MenuUser>, private val menuUserDao:
         holder.textViewFoodName.text = currentItem.foodName
         holder.textViewCalorie.text = "Calorie: ${currentItem.foodCalorie}"
         holder.textViewDate.text = currentItem.date
+        holder.textServing.text = currentItem.serving.toString() + "g"
 
         holder.btDelete.setOnClickListener{
 

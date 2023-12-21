@@ -1,7 +1,13 @@
 package com.example.mobile_uas.usermenu.choosemenu
 
+import android.Manifest
+import android.app.NotificationChannel
+import android.app.NotificationManager
 import android.app.TimePickerDialog
+import android.content.Context
 import android.content.Intent
+import android.content.pm.PackageManager
+import android.os.Build
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.text.Editable
@@ -9,6 +15,9 @@ import android.view.View
 import android.widget.AdapterView
 import android.widget.ArrayAdapter
 import android.widget.Toast
+import androidx.core.app.ActivityCompat
+import androidx.core.app.NotificationCompat
+import androidx.core.app.NotificationManagerCompat
 import com.example.mobile_uas.BottomNavigationActivity
 import com.example.mobile_uas.R
 import com.example.mobile_uas.data.database.MenuRoomDatabase
@@ -42,6 +51,9 @@ class AddChooseMenuActivity : AppCompatActivity(), TimePickerDialog.OnTimeSetLis
         binding.addChoosemenuName.text = Editable.Factory.getInstance().newEditable(foodName.toString())
         binding.addChoosemenuEtKalori.text = Editable.Factory.getInstance().newEditable(foodCalorie.toString())
 
+
+        binding.addChoosemenuName.isEnabled = false
+        binding.addChoosemenuEtKalori.isEnabled = false
 
 
         //InitDB
@@ -102,6 +114,7 @@ class AddChooseMenuActivity : AppCompatActivity(), TimePickerDialog.OnTimeSetLis
                         )
 
                         mMenuUserDao.insert(menuUser)
+                        createNotification()
                         val toMainActivity = Intent(this@AddChooseMenuActivity, BottomNavigationActivity::class.java)
                         startActivity(toMainActivity)
                     }
@@ -123,5 +136,46 @@ class AddChooseMenuActivity : AppCompatActivity(), TimePickerDialog.OnTimeSetLis
         val dateFormat = SimpleDateFormat("yyyy-MM-dd")
         dateFormat.timeZone = TimeZone.getTimeZone("GMT+7")
         return dateFormat.format(Date())
+    }
+
+
+    private fun createNotification() {
+        // Notification channel is required for Android Oreo (API level 26) and higher
+        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.O) {
+            val channel = NotificationChannel(
+                "YOUR_CHANNEL_ID",
+                "YOUR_CHANNEL_NAME",
+                NotificationManager.IMPORTANCE_DEFAULT
+            )
+            val notificationManager =
+                getSystemService(Context.NOTIFICATION_SERVICE) as NotificationManager
+            notificationManager.createNotificationChannel(channel)
+        }
+
+        // Build the notification
+        val builder = NotificationCompat.Builder(this, "YOUR_CHANNEL_ID")
+            .setSmallIcon(R.drawable.baseline_notifications_24)
+            .setContentTitle("CalorieCare")
+            .setContentText("Berhasil Menambahkan Makanan")
+            .setPriority(NotificationCompat.PRIORITY_DEFAULT)
+
+        // Show the notification
+        with(NotificationManagerCompat.from(this)) {
+            if (ActivityCompat.checkSelfPermission(
+                    this@AddChooseMenuActivity,
+                    Manifest.permission.POST_NOTIFICATIONS
+                ) != PackageManager.PERMISSION_GRANTED
+            ) {
+                // TODO: Consider calling
+                //    ActivityCompat#requestPermissions
+                // here to request the missing permissions, and then overriding
+                //   public void onRequestPermissionsResult(int requestCode, String[] permissions,
+                //                                          int[] grantResults)
+                // to handle the case where the user grants the permission. See the documentation
+                // for ActivityCompat#requestPermissions for more details.
+                return
+            }
+            notify(1, builder.build())
+        }
     }
 }

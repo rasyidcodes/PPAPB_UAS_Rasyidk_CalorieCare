@@ -400,7 +400,7 @@
                                 app:indicatorColor="@color/colorSecondary"
                                 app:indicatorSize="90dp"
                                 android:layout_centerVertical="true"
-                                app:trackColor="@color/md_grey_50"
+                                app:trackColor="@color/md_grey_300"
                                 app:trackCornerRadius="26dp"
                                 app:trackThickness="10dp" />
 

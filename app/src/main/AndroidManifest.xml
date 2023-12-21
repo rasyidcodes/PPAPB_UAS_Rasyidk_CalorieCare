@@ -23,7 +23,7 @@
             android:name=".admin.AdminEditFoodActivity"
             android:exported="false" />
         <activity
-            android:name=".BottomNavigationActivity"
+            android:name=".usermenu.addmenu.AddFoodActivity"
             android:exported="false" />
         <activity
             android:name=".admin.AdminActivity"
@@ -51,16 +51,16 @@
             android:name=".welcome.WelcomingActivity"
             android:exported="false" />
         <activity
-            android:name=".splashscreen.SplashScreenActivity"
+            android:name=".BottomNavigationActivity"
             android:exported="false" />
         <activity
             android:name=".MainActivity"
             android:exported="false" />
         <activity
-            android:name=".usermenu.addmenu.AddFoodActivity"
+            android:name=".admin.AdminAddFoodActivity"
             android:exported="false" />
         <activity
-            android:name=".admin.AdminAddFoodActivity"
+            android:name=".splashscreen.SplashScreenActivity"
             android:exported="true">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />

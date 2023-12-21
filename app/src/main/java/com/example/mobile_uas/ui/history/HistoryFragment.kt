@@ -9,11 +9,8 @@ import android.view.View
 import android.view.ViewGroup
 import android.widget.Toast
 import androidx.fragment.app.Fragment
-import androidx.lifecycle.ViewModelProvider
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
-import com.example.mobile_uas.BottomNavigationActivity
-import com.example.mobile_uas.usermenu.addmenu.AddFoodActivity
 import com.example.mobile_uas.data.database.MenuRoomDatabase
 import com.example.mobile_uas.data.model.room.MenuUser
 import com.example.mobile_uas.databinding.FragmentHistoryBinding
@@ -23,7 +20,6 @@ import com.example.myapplication.data.database.MenuUserDAO
 import kotlinx.coroutines.CoroutineScope
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.launch
-import kotlinx.coroutines.withContext
 
 class HistoryFragment : Fragment() {
 
@@ -67,7 +63,8 @@ class HistoryFragment : Fragment() {
             startActivity(toMainActivity)
         }
 
-        updateRecyclerView()
+        val userId = sharedPreferencesHelper.getUserId()
+        updateRecyclerView(userId.toString())
 
         return root
     }
@@ -87,8 +84,9 @@ class HistoryFragment : Fragment() {
         Toast.makeText(requireContext(), message, Toast.LENGTH_SHORT).show()
     }
 
-    private fun updateRecyclerView() {
-        mMenuUserDao.allMenus.observe(viewLifecycleOwner, { menuUserList ->
+    private fun updateRecyclerView(userId: String) {
+        // Use the allMenusByUserId query to retrieve menus for the specific userId
+        mMenuUserDao.allMenusByUserId(userId).observe(viewLifecycleOwner, { menuUserList ->
             menuUserAdapter.updateData(menuUserList)
         })
     }

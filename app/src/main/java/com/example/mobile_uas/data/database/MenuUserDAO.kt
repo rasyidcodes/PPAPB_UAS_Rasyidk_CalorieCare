@@ -23,8 +23,8 @@ interface MenuUserDAO {
     @Delete
     fun delete(menu: MenuUser)
 
-    @get:Query("SELECT * from menuuser_table ORDER BY id DESC")
-    val allMenus: LiveData<List<MenuUser>>
+    @Query("SELECT * FROM menuuser_table WHERE userId = :userId ORDER BY id DESC")
+    fun allMenusByUserId(userId: String): LiveData<List<MenuUser>>
 
     @Query("SELECT * FROM menuuser_table WHERE userId = :userId AND date = :date ORDER BY id DESC")
     fun allMenusByUserId(userId: String, date: String): LiveData<List<MenuUser>>

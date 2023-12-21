@@ -15,6 +15,7 @@ import androidx.fragment.app.Fragment
 import androidx.fragment.app.activityViewModels
 import com.example.mobile_uas.BottomNavigationActivity
 import com.example.mobile_uas.R
+import com.example.mobile_uas.admin.AdminActivity
 
 
 import com.example.mobile_uas.databinding.FragmentLoginBinding
@@ -96,6 +97,9 @@ class LoginFragment : Fragment() {
                     viewModel.fetchUserRoleFromFirestore() { role ->
                         if (role == 1){
                             val toMainActivity = Intent(requireContext(), BottomNavigationActivity::class.java)
+                            startActivity(toMainActivity)
+                        }else if (role == 2){
+                            val toMainActivity = Intent(requireContext(), AdminActivity::class.java)
                             startActivity(toMainActivity)
                         }
                     }

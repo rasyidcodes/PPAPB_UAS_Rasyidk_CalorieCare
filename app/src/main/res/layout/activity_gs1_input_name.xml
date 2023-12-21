@@ -16,6 +16,7 @@
         android:orientation="vertical">
 
         <TextView
+            android:fontFamily="@font/montserrat_bold"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:text="Halo! Siapa Namamu?"
