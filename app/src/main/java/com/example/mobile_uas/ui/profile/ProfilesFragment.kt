@@ -32,7 +32,7 @@ class ProfilesFragment : Fragment() {
         sharedPreferencesHelper = SharedPreferencesHelper.getInstance(requireContext())
 
         binding.frProfileTvName.text = sharedPreferencesHelper.getUserName()
-        binding.frProfileTvHeight.text = "165"
+        binding.frProfileTvHeight.text = sharedPreferencesHelper.getUserHeight().toString()
         binding.frProfileTvWeight.text = sharedPreferencesHelper.getUserWeight().toString()
         binding.frProfileTvTargetweight.text = sharedPreferencesHelper.getUserTargetWeight().toString()
 

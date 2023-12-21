@@ -23,20 +23,36 @@
             android:textColor="@color/colorPrimary"
             android:text="Pilih Makanan"/>
 
-        <EditText
-
-            android:layout_marginRight="@dimen/margin_medium"
-            android:layout_marginLeft="@dimen/margin_medium"
-            android:id="@+id/sgn_password"
+        <LinearLayout
             android:layout_marginTop="@dimen/margin_medium"
             android:layout_width="match_parent"
-            android:drawableRight="@drawable/ic_search_grey_24dp"
             android:layout_height="50dp"
-            android:padding="15dip"
-            android:background="@drawable/rounded_edittext"
-            android:drawablePadding="10dp"
-            android:hint="Cari makanann"
-            />
+            android:layout_marginLeft="@dimen/margin_medium"
+            android:layout_marginRight="@dimen/margin_medium"
+            android:orientation="horizontal">
+            <EditText
+                android:layout_weight="1"
+                android:layout_marginRight="@dimen/margin_medium"
+
+                android:id="@+id/sgn_password"
+                android:layout_width="match_parent"
+                android:drawableRight="@drawable/ic_search_grey_24dp"
+                android:layout_height="50dp"
+                android:padding="15dip"
+                android:background="@drawable/rounded_edittext"
+                android:drawablePadding="10dp"
+                android:hint="Cari makanann"
+                />
+
+
+            <Button
+                android:id="@+id/choose_toCustom"
+                android:background="@drawable/baseline_edit_24"
+                android:layout_width="50dp"
+                android:layout_height="50dp"
+                />
+
+        </LinearLayout>
 
 
         <androidx.recyclerview.widget.RecyclerView

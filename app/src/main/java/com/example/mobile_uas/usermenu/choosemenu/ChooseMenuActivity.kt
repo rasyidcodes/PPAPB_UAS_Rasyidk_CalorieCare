@@ -9,6 +9,7 @@ import android.text.TextWatcher
 import android.util.Log
 import android.widget.Toast
 import androidx.recyclerview.widget.LinearLayoutManager
+import com.example.mobile_uas.BottomNavigationActivity
 import com.example.mobile_uas.R
 import com.example.mobile_uas.admin.AdminAddFoodActivity
 import com.example.mobile_uas.admin.AdminDataAdapter
@@ -40,7 +41,12 @@ class ChooseMenuActivity : AppCompatActivity() {
         admindataAdapter = ChooseMenuAdapter()
         recyclerView.adapter = admindataAdapter
         fetchDataAndObserve()
+        //To custom
 
+        binding.chooseToCustom.setOnClickListener{
+            val toMainActivity = Intent(this@ChooseMenuActivity, AddFoodActivity::class.java)
+            startActivity(toMainActivity)
+        }
 
         // Set up search functionality
         val searchEditText = binding.sgnPassword

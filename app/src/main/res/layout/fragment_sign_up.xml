@@ -23,7 +23,7 @@
             android:textAlignment="center"/>
 
         <com.google.android.material.textfield.TextInputLayout
-            android:layout_marginTop="@dimen/margin_large"
+            android:layout_marginTop="@dimen/margin_small"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:hint="Email">
@@ -61,7 +61,7 @@
 
 
         <androidx.appcompat.widget.AppCompatButton
-            android:layout_marginTop="@dimen/margin_large"
+            android:layout_marginTop="@dimen/margin_small"
             android:id="@+id/signup_bt_signup"
             android:layout_width="fill_parent"
             android:layout_height="50dp"

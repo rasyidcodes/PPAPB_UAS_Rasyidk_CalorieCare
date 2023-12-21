@@ -10,10 +10,12 @@ import android.widget.AdapterView
 import android.widget.ArrayAdapter
 import android.widget.PopupMenu
 import android.widget.Toast
+import com.example.mobile_uas.BottomNavigationActivity
 import com.example.mobile_uas.MainActivity
 import com.example.mobile_uas.R
 import com.example.mobile_uas.databinding.ActivityGs2SayHiBinding
 import com.example.mobile_uas.databinding.ActivityGs3FormDataBinding
+import com.example.mobile_uas.util.SharedPreferencesHelper
 import com.google.firebase.firestore.FirebaseFirestore
 
 class GS3_FormDataActivity : AppCompatActivity(), DatePickerDialog.OnDateSetListener {
@@ -23,10 +25,15 @@ class GS3_FormDataActivity : AppCompatActivity(), DatePickerDialog.OnDateSetList
     var selectedSatuan2 = ""
     val data = listOf("Kg", "Lb")
     private lateinit var firestore: FirebaseFirestore
+    private lateinit var sharedPreferencesHelper: SharedPreferencesHelper
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         binding = ActivityGs3FormDataBinding.inflate(layoutInflater)
         setContentView(binding.root)
+
+
+        //init shared pref
+        sharedPreferencesHelper = SharedPreferencesHelper.getInstance(this@GS3_FormDataActivity)
 
         //init firestore
         firestore = FirebaseFirestore.getInstance()
@@ -92,9 +99,10 @@ class GS3_FormDataActivity : AppCompatActivity(), DatePickerDialog.OnDateSetList
             val beratyangdiinginkan = binding.gs3beratyangdiinginkan.text.toString()
             val jumlahkalori    = binding.gs3jumlahkalori.text.toString()
             targetTanggal = binding.gs3datePickerTextInputEditText.text.toString()
+            val tinggiBadan = binding.gs3TinggiBadan.text.toString()
 
 
-            if (beratsaatini.isFloat() && beratyangdiinginkan.isFloat() && jumlahkalori.isFloat()) {
+            if (beratsaatini.isFloat() && beratyangdiinginkan.isFloat() && jumlahkalori.isFloat() && tinggiBadan.isFloat()) {
                 if (selectedTitle == "" || targetTanggal == ""){
                     Toast.makeText(this, "Data tidak cocok!", Toast.LENGTH_SHORT).show()
                 }else{
@@ -108,7 +116,7 @@ class GS3_FormDataActivity : AppCompatActivity(), DatePickerDialog.OnDateSetList
                     Log.d("data_satuanberatyangdiinginkan",selectedSatuan2)
                     Log.d("data_targetTanggal",targetTanggal)
                     Log.d("data_jumlahkalori",jumlahkalori)
-                    addUserDataToFirestore(val_uid, val_name.toString(), beratsaatini.toInt(), selectedSatuan1, beratyangdiinginkan.toInt(), selectedSatuan2, targetTanggal, jumlahkalori.toInt(), val_email.toString(),1)
+                    addUserDataToFirestore(val_uid, val_name.toString(), beratsaatini.toInt(), selectedSatuan1, beratyangdiinginkan.toInt(), selectedSatuan2, targetTanggal, jumlahkalori.toInt(), val_email.toString(),1, tinggiBadan.toInt())
 
 
                 }
@@ -122,7 +130,7 @@ class GS3_FormDataActivity : AppCompatActivity(), DatePickerDialog.OnDateSetList
     }
 
 
-    private fun addUserDataToFirestore(userId: String?, val_name: String, weight: Int, weight_unit: String, target_weight: Int, target_weight_unit: String, target_date: String, calorie: Int, email: String, tipe: Int) {
+    private fun addUserDataToFirestore(userId: String?, val_name: String, weight: Int, weight_unit: String, target_weight: Int, target_weight_unit: String, target_date: String, calorie: Int, email: String, tipe: Int, tinggiBadan : Int) {
         // Add user data to Firestore
         val user = hashMapOf(
             "userId" to userId,
@@ -134,8 +142,8 @@ class GS3_FormDataActivity : AppCompatActivity(), DatePickerDialog.OnDateSetList
             "target_date" to target_date,
             "calorie" to calorie,
             "email" to email,
-            "tipe" to tipe
-            // Add any additional data you want to store
+            "tipe" to tipe,
+            "height" to tinggiBadan
         )
 
         if (userId != null) {
@@ -145,13 +153,26 @@ class GS3_FormDataActivity : AppCompatActivity(), DatePickerDialog.OnDateSetList
                     .set(user)
                     .addOnSuccessListener {
                         // Log.d(TAG, "DocumentSnapshot successfully written!")
-                        showToast("FIRESTORE SUKSES")
-                        // TODO: Handle success
+                        showToast("Data Berhasil Ditambahkan")
+
+                        sharedPreferencesHelper.saveUserName(val_name)
+                        sharedPreferencesHelper.saveUserId(userId)
+                        sharedPreferencesHelper.saveUserTipe(tipe)
+                        sharedPreferencesHelper.saveUserHeight(tinggiBadan)
+                        sharedPreferencesHelper.saveUserWeight(weight)
+                        sharedPreferencesHelper.saveUserTargetWeight(target_weight)
+                        sharedPreferencesHelper.saveUserCalorie(calorie)
+                        sharedPreferencesHelper.saveUserHeight(tinggiBadan)
+                        sharedPreferencesHelper.setLoggedIn(true)
+
+                        val toMainActivity = Intent(this@GS3_FormDataActivity, BottomNavigationActivity::class.java)
+                        startActivity(toMainActivity)
+
                     }
                     .addOnFailureListener { e ->
                         // Log.w(TAG, "Error writing document", e)
                         // TODO: Handle failure
-                        showToast("FIRESTORE GAGAL")
+                        showToast("Data Gagal Ditambahkan")
                     }
             } catch (e: Exception) {
                 // Handle other exceptions
