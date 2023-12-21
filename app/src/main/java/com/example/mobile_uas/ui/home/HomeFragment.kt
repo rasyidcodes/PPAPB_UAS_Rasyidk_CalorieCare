@@ -42,14 +42,16 @@ private var _binding: FragmentHomeBinding? = null
       val currentDate = "2023-01-02"
       homeViewModel.getTotalCaloriesForCurrentUserAndDate(userId, getCurrentDateInGMTPlus7()).observe(viewLifecycleOwner) { totalCalories ->
 
+          val totalCalories = totalCalories?.takeIf { it >= 0 } ?: 0
 
           val calLeft = targetCalorie-totalCalories
           val persenPB: Double = (calLeft.toDouble() / targetCalorie.toDouble()) * 100
-
+//
           binding.progressCircularIndicator.setProgress(persenPB.toInt(),true)
 
+
           val displayedCalories = calLeft?.takeIf { it >= 0 } ?: 0
-          binding.frHomeTvCalLeft.text = "$calLeft\nCal\nLeft"
+          binding.frHomeTvCalLeft.text = "$displayedCalories\nCal\nLeft"
       }
 
       //GET CAL LUNCH

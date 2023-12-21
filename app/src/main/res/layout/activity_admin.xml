@@ -1,9 +1,92 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:id="@+id/admin_rel"
     tools:context=".admin.AdminActivity">
 
-</androidx.constraintlayout.widget.ConstraintLayout>
+<LinearLayout
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical">
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="60dp"
+        android:background="@color/colorPrimary">
+
+
+        <LinearLayout
+            android:layout_marginLeft="@dimen/margin_medium"
+            android:layout_centerVertical="true"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal">
+            <ImageView
+                android:src="@drawable/baseline_account_circle_24_white"
+                android:layout_width="40dp"
+                android:layout_height="40dp"/>
+
+            <TextView
+                android:id="@+id/admin_tv_name"
+                android:layout_marginLeft="@dimen/margin_small"
+                android:layout_width="wrap_content"
+                android:fontFamily="@font/montserrat_bold"
+                android:textColor="@color/white"
+                android:layout_height="match_parent"
+                android:text="Your Name"
+                android:gravity="center_vertical"/>
+        </LinearLayout>
+
+        <ImageView
+            android:id="@+id/admin_logout"
+            android:src="@drawable/baseline_exit_to_app_24"
+            android:layout_width="40dp"
+            android:layout_centerVertical="true"
+            android:layout_alignParentEnd="true"
+            android:layout_marginRight="@dimen/margin_medium"
+            android:layout_height="40dp"/>
+
+    </RelativeLayout>
+
+
+    <EditText
+        android:layout_marginRight="@dimen/margin_medium"
+        android:layout_marginLeft="@dimen/margin_medium"
+        android:id="@+id/sgn_password"
+        android:layout_marginTop="@dimen/margin_medium"
+        android:layout_width="match_parent"
+        android:drawableRight="@drawable/ic_search_grey_24dp"
+        android:layout_height="50dp"
+        android:padding="15dip"
+        android:background="@drawable/rounded_edittext"
+        android:drawablePadding="10dp"
+        android:hint="Cari makanann"
+         />
+
+
+    <androidx.recyclerview.widget.RecyclerView
+        android:id="@+id/recyclerviewAdmin"
+        android:layout_width="match_parent"
+        android:layout_marginTop="@dimen/margin_medium"
+        android:layout_marginLeft="@dimen/margin_medium"
+        android:layout_marginRight="@dimen/margin_medium"
+        android:layout_height="match_parent"/>
+
+
+</LinearLayout>
+
+    <com.google.android.material.floatingactionbutton.FloatingActionButton
+        android:id="@+id/admin_fabAdd"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentBottom="true"
+        android:layout_alignParentEnd="true"
+        android:layout_margin="@dimen/margin_medium"
+        android:src="@drawable/baseline_add_24"
+        android:backgroundTint="@color/colorPrimary" />
+
+
+</RelativeLayout>

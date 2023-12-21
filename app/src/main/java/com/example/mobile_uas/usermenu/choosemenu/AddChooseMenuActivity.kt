@@ -1,19 +1,21 @@
-package com.example.mobile_uas.addmenu
+package com.example.mobile_uas.usermenu.choosemenu
 
 import android.app.TimePickerDialog
 import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import android.text.Editable
 import android.view.View
 import android.widget.AdapterView
 import android.widget.ArrayAdapter
 import android.widget.Toast
-import androidx.core.content.ContentProviderCompat.requireContext
 import com.example.mobile_uas.BottomNavigationActivity
 import com.example.mobile_uas.R
 import com.example.mobile_uas.data.database.MenuRoomDatabase
 import com.example.mobile_uas.data.model.room.MenuUser
-import com.example.mobile_uas.databinding.ActivityAddFoodBinding
+import com.example.mobile_uas.databinding.ActivityAddChooseMenuBinding
+import com.example.mobile_uas.databinding.ActivityAdminEditFoodBinding
+import com.example.mobile_uas.usermenu.addmenu.TimePicker
 import com.example.mobile_uas.util.SharedPreferencesHelper
 import com.example.myapplication.data.database.MenuUserDAO
 import kotlinx.coroutines.CoroutineScope
@@ -23,24 +25,32 @@ import java.text.SimpleDateFormat
 import java.util.Date
 import java.util.TimeZone
 
-class AddFoodActivity : AppCompatActivity(), TimePickerDialog.OnTimeSetListener {
+class AddChooseMenuActivity : AppCompatActivity(), TimePickerDialog.OnTimeSetListener {
 
-    private lateinit var binding: ActivityAddFoodBinding
+    private lateinit var binding: ActivityAddChooseMenuBinding
     private lateinit var mMenuUserDao: MenuUserDAO
     private lateinit var sharedPreferencesHelper: SharedPreferencesHelper
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        binding = ActivityAddFoodBinding.inflate(layoutInflater)
-        val view = binding.root
-        setContentView(view)
+        binding = ActivityAddChooseMenuBinding.inflate(layoutInflater)
+        setContentView(binding.root)
+
+        val foodName = intent.getStringExtra("foodName")
+        val foodCalorie = intent.getIntExtra("foodCalorie",0)
+
+
+        binding.addChoosemenuName.text = Editable.Factory.getInstance().newEditable(foodName.toString())
+        binding.addChoosemenuEtKalori.text = Editable.Factory.getInstance().newEditable(foodCalorie.toString())
+
+
 
         //InitDB
-        val db = MenuRoomDatabase.getDatabase(this@AddFoodActivity)
+        val db = MenuRoomDatabase.getDatabase(this@AddChooseMenuActivity)
         mMenuUserDao = db?.MenuUserDAO() ?: throw Exception("Database not initialized")
-        sharedPreferencesHelper = SharedPreferencesHelper.getInstance(this@AddFoodActivity)
+        sharedPreferencesHelper = SharedPreferencesHelper.getInstance(this@AddChooseMenuActivity)
 
         //Spinner
-        val spinner1 = binding.makanSpinnerMakan
+        val spinner1 = binding.addChoosemenuSpinnerMakan
         val data = listOf("lunch", "dinner", "breakfast")
         var selectTypeMakan = ""
 
@@ -59,17 +69,17 @@ class AddFoodActivity : AppCompatActivity(), TimePickerDialog.OnTimeSetListener 
         }
 
         //Time Picker
-        binding.makanTime.setOnClickListener{
+        binding.addChoosemenuTime.setOnClickListener{
             val timepicker = TimePicker()
             timepicker.show(supportFragmentManager, "TP")
         }
 
 
-        binding.makanBtSubmit.setOnClickListener {
-            var nameMakan = binding.makanEtName.text.toString()
-            var waktuMakan = binding.makanTime.text.toString()
-            var jumlahKaloriNew = binding.makanEtKalori.text.toString()
-            var jumlahServing = binding.makanEtServing.text.toString()
+        binding.addChoosemenuBtSubmit.setOnClickListener {
+            var nameMakan = binding.addChoosemenuName.text.toString()
+            var waktuMakan = binding.addChoosemenuTime.text.toString()
+            var jumlahKaloriNew = binding.addChoosemenuEtKalori.text.toString()
+            var jumlahServing = binding.addChoosemenuEtServing.text.toString()
 
             try {
                 // Attempt to convert jumlahKaloriNew and jumlahServing to integers
@@ -86,13 +96,13 @@ class AddFoodActivity : AppCompatActivity(), TimePickerDialog.OnTimeSetListener 
                             type = selectTypeMakan,
                             action = "makan",
                             foodName = nameMakan,
-                            foodCalorie = kaloriInt * servingInt,
+                            foodCalorie = kaloriInt,
                             serving = servingInt,
                             date = getCurrentDateInGMTPlus7()
                         )
 
                         mMenuUserDao.insert(menuUser)
-                        val toMainActivity = Intent(this@AddFoodActivity, BottomNavigationActivity::class.java)
+                        val toMainActivity = Intent(this@AddChooseMenuActivity, BottomNavigationActivity::class.java)
                         startActivity(toMainActivity)
                     }
                 }
@@ -103,12 +113,10 @@ class AddFoodActivity : AppCompatActivity(), TimePickerDialog.OnTimeSetListener 
         }
 
 
-
     }
-
     override fun onTimeSet(view: android.widget.TimePicker?, hourOfDay: Int, minute: Int) {
         val selectedTime =  String.format("%02d:%02d", hourOfDay, minute)
-        binding.makanTime.setText(selectedTime)
+        binding.addChoosemenuTime.setText(selectedTime)
     }
 
     fun getCurrentDateInGMTPlus7(): String {

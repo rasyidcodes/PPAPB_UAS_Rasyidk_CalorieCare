@@ -1,4 +1,4 @@
-package com.example.mobile_uas.addmenu
+package com.example.mobile_uas.usermenu.addmenu
 
 import android.app.Dialog
 import android.app.TimePickerDialog

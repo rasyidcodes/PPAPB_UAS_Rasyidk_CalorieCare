@@ -1,56 +1,46 @@
-package com.example.mobile_uas.admin
+package com.example.mobile_uas.usermenu.choosemenu
 
 import android.content.Context
 import android.content.Intent
+import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.text.Editable
 import android.text.TextWatcher
 import android.util.Log
 import android.widget.Toast
-import androidx.appcompat.app.AppCompatActivity
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.example.mobile_uas.R
+import com.example.mobile_uas.admin.AdminAddFoodActivity
+import com.example.mobile_uas.admin.AdminDataAdapter
 import com.example.mobile_uas.auth.AuthActivity
 import com.example.mobile_uas.data.model.firestore.MenuAdminFS
 import com.example.mobile_uas.databinding.ActivityAdminBinding
+import com.example.mobile_uas.databinding.ActivityChooseMenuBinding
+import com.example.mobile_uas.usermenu.addmenu.AddFoodActivity
 import com.example.mobile_uas.util.SharedPreferencesHelper
 import com.google.firebase.firestore.FirebaseFirestore
 
-class AdminActivity : AppCompatActivity() {
+class ChooseMenuActivity : AppCompatActivity() {
 
-    private lateinit var binding: ActivityAdminBinding
+    private lateinit var binding: ActivityChooseMenuBinding
     private lateinit var sharedPreferencesHelper: SharedPreferencesHelper
-    private lateinit var admindataAdapter: AdminDataAdapter
+    private lateinit var admindataAdapter: ChooseMenuAdapter
     private lateinit var firestore: FirebaseFirestore
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        binding = ActivityAdminBinding.inflate(layoutInflater)
+        binding = ActivityChooseMenuBinding.inflate(layoutInflater)
         setContentView(binding.root)
 
         firestore = FirebaseFirestore.getInstance()
-        sharedPreferencesHelper = SharedPreferencesHelper.getInstance(this@AdminActivity)
+        sharedPreferencesHelper = SharedPreferencesHelper.getInstance(this@ChooseMenuActivity)
 
-        val recyclerView = binding.recyclerviewAdmin
+        val recyclerView = binding.recyclerview
         recyclerView.layoutManager = LinearLayoutManager(this)
-        admindataAdapter = AdminDataAdapter()
+        admindataAdapter = ChooseMenuAdapter()
         recyclerView.adapter = admindataAdapter
         fetchDataAndObserve()
 
-        // Set text
-        binding.adminTvName.text = sharedPreferencesHelper.getUserName().toString()
-
-        // Logout
-        binding.adminLogout.setOnClickListener {
-            val toMainActivity = Intent(this@AdminActivity, AuthActivity::class.java)
-            sharedPreferencesHelper.setLoggedIn(false)
-            startActivity(toMainActivity)
-        }
-
-        binding.adminFabAdd.setOnClickListener{
-            val toMainActivity = Intent(this@AdminActivity, AdminAddFoodActivity::class.java)
-            startActivity(toMainActivity)
-        }
 
         // Set up search functionality
         val searchEditText = binding.sgnPassword
@@ -86,7 +76,7 @@ class AdminActivity : AppCompatActivity() {
             // Observe Firestore changes
             query.addSnapshotListener { snapshot, exception ->
                 if (exception != null) {
-                    showToast(this@AdminActivity, "Error fetching data from Firestore")
+                    showToast(this@ChooseMenuActivity, "Error fetching data from Firestore")
                     return@addSnapshotListener
                 }
 
@@ -103,7 +93,7 @@ class AdminActivity : AppCompatActivity() {
                 }
             }
         } catch (e: Exception) {
-            showToast(this@AdminActivity, e.toString())
+            showToast(this@ChooseMenuActivity, e.toString())
             Log.d("ERRORKU", e.toString())
         }
     }

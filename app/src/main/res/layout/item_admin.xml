@@ -15,20 +15,7 @@
             android:orientation="vertical"
             android:padding="20dp">
 
-            <TextView
-                android:id="@+id/item_History_Type"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="Breakfast"
-                android:textColor="@color/colorPrimary"
-                android:textSize="25sp" />
 
-            <RelativeLayout
-                android:layout_width="match_parent"
-                android:layout_height="5dp"
-                android:layout_marginTop="7dp"
-                android:layout_marginBottom="7dp"
-                android:background="#F0F0F0" />
 
             <LinearLayout
                 android:layout_width="match_parent"
@@ -43,78 +30,78 @@
 
 
                 <RelativeLayout
-                    android:layout_width="match_parent"
+                    android:layout_weight="1"
+                    android:layout_width="wrap_content"
                     android:layout_height="match_parent"
                     android:layout_marginLeft="20px">
 
                     <LinearLayout
-                        android:layout_width="match_parent"
+                        android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:layout_centerVertical="true"
                         android:orientation="vertical">
 
                         <TextView
-                            android:id="@+id/item_History_FoodName"
+                            android:id="@+id/item_admin_FoodName"
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
                             android:fontFamily="@font/montserrat_bold"
                             android:text="Sate Ayam"
                             android:textColor="@color/black"
-                            android:textSize="25sp" />
+                            android:textSize="@dimen/text_size_medium" />
 
                         <TextView
-                            android:id="@+id/item_History_Calorie"
+                            android:id="@+id/item_admin_Calorie"
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
                             android:fontFamily="@font/montserrat"
                             android:text="150 Cal" />
+
+
+                    </LinearLayout>
+
+
+                </RelativeLayout>
+
+                <RelativeLayout
+                    android:layout_alignParentEnd="true"
+                    android:layout_width="100dp"
+                    android:layout_height="match_parent">
+
+                    <LinearLayout
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_centerVertical="true"
+                        android:layout_centerHorizontal="true"
+                        android:orientation="horizontal">
+                        <Button
+                            android:layout_centerVertical="true"
+                            android:id="@+id/item_admin_Delete"
+                            android:background="@drawable/baseline_delete_forever_24"
+                            android:layout_width="40dp"
+                            android:layout_height="40dp"
+                            android:layout_alignParentEnd="true"
+                            android:textSize="@dimen/margin_small"
+                            android:layout_marginRight="@dimen/margin_small"
+                            android:fontFamily="@font/montserrat_bold"/>
+                        <Button
+                            android:layout_centerVertical="true"
+                            android:id="@+id/item_admin_edit"
+                            android:background="@drawable/baseline_edit_24"
+                            android:layout_width="40dp"
+                            android:layout_height="40dp"
+                            android:layout_alignParentEnd="true"
+                            android:textSize="@dimen/margin_small"
+                            android:fontFamily="@font/montserrat_bold"/>
                     </LinearLayout>
 
                 </RelativeLayout>
 
             </LinearLayout>
 
-            <LinearLayout
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_marginTop="60px"
-                android:orientation="horizontal">
 
-                <ImageView
-                    android:layout_width="35dp"
-                    android:layout_height="35dp"
-                    android:src="@drawable/baseline_date_range_24" />
 
-                <RelativeLayout
-                    android:layout_width="wrap_content"
-                    android:layout_height="match_parent">
 
-                    <TextView
-                        android:id="@+id/item_History_Date"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:layout_centerVertical="true"
-                        android:layout_marginLeft="15px"
-                        android:fontFamily="@font/montserrat_bold"
-                        android:text="12 Desember 2020"
-                        android:textSize="13sp" />
-                </RelativeLayout>
-
-                <RelativeLayout
-                    android:layout_width="match_parent"
-                    android:layout_height="match_parent">
-
-                    <Button
-                        android:id="@+id/item_History_Delete"
-                        android:background="@drawable/baseline_delete_forever_24"
-                        android:layout_width="40dp"
-                        android:layout_height="wrap_content"
-                        android:layout_alignParentEnd="true"
-                        android:textSize="@dimen/margin_small"
-                        android:fontFamily="@font/montserrat_bold"/>
-
-                </RelativeLayout>
-            </LinearLayout>
         </LinearLayout>
     </RelativeLayout>
 

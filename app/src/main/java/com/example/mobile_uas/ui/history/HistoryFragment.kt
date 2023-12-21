@@ -13,10 +13,11 @@ import androidx.lifecycle.ViewModelProvider
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import com.example.mobile_uas.BottomNavigationActivity
-import com.example.mobile_uas.addmenu.AddFoodActivity
+import com.example.mobile_uas.usermenu.addmenu.AddFoodActivity
 import com.example.mobile_uas.data.database.MenuRoomDatabase
 import com.example.mobile_uas.data.model.room.MenuUser
 import com.example.mobile_uas.databinding.FragmentHistoryBinding
+import com.example.mobile_uas.usermenu.choosemenu.ChooseMenuActivity
 import com.example.mobile_uas.util.SharedPreferencesHelper
 import com.example.myapplication.data.database.MenuUserDAO
 import kotlinx.coroutines.CoroutineScope
@@ -62,7 +63,7 @@ class HistoryFragment : Fragment() {
 //            )
 //            insertMenu(menuUser)
 
-            val toMainActivity = Intent(requireContext(), AddFoodActivity::class.java)
+            val toMainActivity = Intent(requireContext(), ChooseMenuActivity::class.java)
             startActivity(toMainActivity)
         }
 

@@ -20,8 +20,10 @@ class MenuUserAdapter(var menuUserList: List<MenuUser>, private val menuUserDao:
     RecyclerView.Adapter<MenuUserAdapter.ViewHolder>() {
 
     class ViewHolder(itemView: View) : RecyclerView.ViewHolder(itemView) {
-        val textViewFoodName: TextView = itemView.findViewById(R.id.textViewFoodName)
-        val textViewCalorie: TextView = itemView.findViewById(R.id.textViewCalorie)
+        val textViewFoodName: TextView = itemView.findViewById(R.id.item_History_FoodName)
+        val textViewCalorie: TextView = itemView.findViewById(R.id.item_History_Calorie)
+        val textViewDate : TextView = itemView.findViewById(R.id.item_History_Date)
+        val textViewType : TextView = itemView.findViewById(R.id.item_History_Type)
         val btDelete : Button = itemView.findViewById(R.id.item_History_Delete);
     }
 
@@ -34,8 +36,10 @@ class MenuUserAdapter(var menuUserList: List<MenuUser>, private val menuUserDao:
     override fun onBindViewHolder(holder: ViewHolder, position: Int) {
         val currentItem = menuUserList[position]
 
-        holder.textViewFoodName.text = currentItem.type
+        holder.textViewType.text = currentItem.type
+        holder.textViewFoodName.text = currentItem.foodName
         holder.textViewCalorie.text = "Calorie: ${currentItem.foodCalorie}"
+        holder.textViewDate.text = currentItem.date
 
         holder.btDelete.setOnClickListener{
 
