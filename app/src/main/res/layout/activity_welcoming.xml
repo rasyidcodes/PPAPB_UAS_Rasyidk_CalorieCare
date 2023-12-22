@@ -54,7 +54,7 @@
             android:layout_height="50dp"
             android:layout_margin="20dp"
             android:background="@drawable/rounded_button_secondary"
-            android:text="@string/start"
+            android:text="GET STARTED"
             android:textAllCaps="false"
             android:fontFamily="@font/montserrat_bold"
             android:textColor="@color/md_white_1000" />
@@ -66,6 +66,7 @@
             android:layout_margin="20dp"
             android:textColor="@color/md_grey_600"
             android:gravity="center"
+            android:fontFamily="@font/montserrat"
             android:text="@string/start_text_advice"
             android:textColorLink="@color/colorPrimary"
             android:textSize="12sp" />

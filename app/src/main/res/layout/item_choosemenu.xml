@@ -75,7 +75,7 @@
                         android:textSize="@dimen/text_size_small"
                         android:fontFamily="@font/montserrat_bold"
                         android:layout_height="wrap_content"
-                        android:text="Choose"/>
+                        android:text="Pilih"/>
 
                 </RelativeLayout>
 
